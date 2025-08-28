@@ -1,12 +1,12 @@
 // src/components/AgentNode.tsx
 
-import { useState } from 'react';
-import { Handle, Position, type NodeProps, useReactFlow } from '@xyflow/react';
-import { User, Wrench, X } from 'lucide-react';
-import type { AgentNodeData, DroppedData, AgentNode as AgentNodeType, Tool } from '../types';
+import { Handle, Position, useReactFlow, type NodeProps } from '@xyflow/react';
 import clsx from 'clsx';
+import { User, Wrench, X } from 'lucide-react';
+import { useState } from 'react';
+import type { AgentNode as AgentNodeType, DroppedData, Tool } from '../types';
 
-export default function AgentNode({ id, data }: NodeProps<AgentNodeData>) {
+export default function AgentNode({ id, data }: NodeProps<AgentNodeType>) {
   const { setNodes } = useReactFlow<AgentNodeType>();
   // NEW: State to track when a draggable item is over the node
   const [isDragOver, setIsDragOver] = useState(false);

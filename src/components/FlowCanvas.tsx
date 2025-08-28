@@ -1,18 +1,18 @@
 // src/components/FlowCanvas.tsx
 
-import { useCallback, useRef, useMemo } from 'react';
 import {
-  ReactFlow,
-  Background,
-  Controls,
-  useNodesState,
-  useEdgesState,
-  useReactFlow,
-  addEdge,
-  type Connection,
+    addEdge,
+    Background,
+    Controls,
+    ReactFlow,
+    useEdgesState,
+    useNodesState,
+    useReactFlow,
+    type Connection,
 } from '@xyflow/react';
+import { useCallback, useMemo, useRef } from 'react';
+import type { AgentNode, DroppedData } from '../types';
 import AgentNodeComponent from './AgentNode';
-import type { AgentNodeData, DroppedData, AgentNode } from '../types';
 
 import '@xyflow/react/dist/style.css';
 
@@ -21,7 +21,7 @@ const getId = () => `agent_${id++}`;
 
 export default function FlowCanvas() {
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const [nodes, setNodes, onNodesChange] = useNodesState<AgentNodeData>([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState<AgentNode>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const { screenToFlowPosition } = useReactFlow<AgentNode>();
 

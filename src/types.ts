@@ -10,7 +10,7 @@ export interface Tool {
 }
 
 // Data structure for our custom Agent node
-export interface AgentNodeData {
+export interface AgentNodeData extends Record<string, unknown>  {
   label: string;
   modelFamily: string;
   modelName: string;
@@ -23,5 +23,7 @@ export type AgentNode = Node<AgentNodeData>;
 // Type for the data transferred during a drag-and-drop operation
 export interface DroppedData {
   type: 'agent' | 'tool';
+
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any; // Can be agent details or a full Tool object
 }
